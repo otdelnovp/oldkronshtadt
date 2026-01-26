@@ -64,6 +64,30 @@ $(document).ready(function() {
         });
     });
 
+    // Галерея истории
+    var historyImages = [];
+    var historyIndex = 0;
+
+    $('.history-gallery-item').each(function() {
+        var img = $(this).find('img');
+        historyImages.push({
+            src: img.attr('src'),
+            title: img.attr('alt')
+        });
+    });
+
+    // Галерея достопримечательностей
+    var attractionsImages = [];
+    var attractionsIndex = 0;
+
+    $('.attractions-gallery-item').each(function() {
+        var img = $(this).find('img');
+        attractionsImages.push({
+            src: img.attr('src'),
+            title: img.attr('alt')
+        });
+    });
+
     // Современная галерея
     var modernImages = [];
     var modernIndex = 0;
@@ -90,6 +114,34 @@ $(document).ready(function() {
         openModal(galleryIndex);
     });
 
+    $('.history-gallery-item').on('click', function() {
+        var img = $(this).find('img');
+        historyIndex = historyImages.findIndex(function(item) {
+            return item.src === img.attr('src');
+        });
+        
+        if (historyIndex === -1) {
+            historyIndex = 0;
+        }
+        
+        currentGallery = 'history';
+        openModal(historyIndex);
+    });
+
+    $('.attractions-gallery-item').on('click', function() {
+        var img = $(this).find('img');
+        attractionsIndex = attractionsImages.findIndex(function(item) {
+            return item.src === img.attr('src');
+        });
+        
+        if (attractionsIndex === -1) {
+            attractionsIndex = 0;
+        }
+        
+        currentGallery = 'attractions';
+        openModal(attractionsIndex);
+    });
+
     $('.modern-gallery-item').on('click', function() {
         var img = $(this).find('img');
         modernIndex = modernImages.findIndex(function(item) {
@@ -105,16 +157,36 @@ $(document).ready(function() {
     });
 
     function getCurrentImages() {
-        return currentGallery === 'main' ? galleryImages : modernImages;
+        if (currentGallery === 'main') {
+            return galleryImages;
+        } else if (currentGallery === 'history') {
+            return historyImages;
+        } else if (currentGallery === 'attractions') {
+            return attractionsImages;
+        } else {
+            return modernImages;
+        }
     }
 
     function getCurrentIndex() {
-        return currentGallery === 'main' ? galleryIndex : modernIndex;
+        if (currentGallery === 'main') {
+            return galleryIndex;
+        } else if (currentGallery === 'history') {
+            return historyIndex;
+        } else if (currentGallery === 'attractions') {
+            return attractionsIndex;
+        } else {
+            return modernIndex;
+        }
     }
 
     function setCurrentIndex(index) {
         if (currentGallery === 'main') {
             galleryIndex = index;
+        } else if (currentGallery === 'history') {
+            historyIndex = index;
+        } else if (currentGallery === 'attractions') {
+            attractionsIndex = index;
         } else {
             modernIndex = index;
         }
