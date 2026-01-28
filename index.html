@@ -20,6 +20,7 @@
 		<link rel="stylesheet" href="css/style.css" />
 	</head>
 	<body>
+		<div class="scroll-progress"></div>
 		<nav
 			class="navbar navbar-expand-lg navbar-dark fixed-top bg-transparent"
 			id="mainNav"
@@ -63,6 +64,7 @@
 
 		<section id="home" class="hero-section">
 			<img src="images/main.jpg" alt="Фон главной страницы" class="hero-bg-img" />
+			<canvas class="particles-canvas" id="particles-canvas"></canvas>
 			<div class="hero-overlay"></div>
 			<div class="hero-content">
 				<div class="container">
@@ -88,19 +90,20 @@
 
 		<section id="history" class="py-5">
 			<div class="container">
-				<div class="row">
-					<div class="col-12 text-center mb-5">
-						<h2 class="display-5 fw-bold wow fadeInUp" data-wow-duration="0.5s">
-							История Кронштадта
+			<div class="row">
+				<div class="col-12 text-center mb-5">
+					<div class="header-wrapper wow fadeInUp" data-wow-duration="0.5s">
+						<h2 class="display-5 fw-bold">
+							Современный Кронштадт
 						</h2>
 						<div
-							class="separator mx-auto wow fadeInUp" data-wow-delay="0.05s" data-wow-duration="0.5s"
+							class="separator mx-auto"
 						></div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-lg-6 mb-4 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.05s">
-						<div class="history-card history-gallery-item">
+						<div class="history-card history-gallery-item card-3d">
 							<img
 								src="images/history-1.jpg"
 								alt="Старый Кронштадт"
@@ -122,7 +125,7 @@
 						</div>
 					</div>
 					<div class="col-lg-6 mb-4 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.1s">
-						<div class="history-card history-gallery-item">
+						<div class="history-card history-gallery-item card-3d">
 							<img
 								src="images/history-2.jpg"
 								alt="Старый Кронштадт"
@@ -144,7 +147,7 @@
 						</div>
 					</div>
 					<div class="col-lg-6 mb-4 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.15s">
-						<div class="history-card history-gallery-item">
+						<div class="history-card history-gallery-item card-3d">
 							<img
 								src="images/history-3.jpg"
 								alt="Старый Кронштадт"
@@ -166,7 +169,7 @@
 						</div>
 					</div>
 					<div class="col-lg-6 mb-4 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.2s">
-						<div class="history-card history-gallery-item">
+						<div class="history-card history-gallery-item card-3d">
 							<img
 								src="images/history-4.jpg"
 								alt="Старый Кронштадт"
@@ -195,9 +198,10 @@
 			<div class="container">
 			<div class="row">
 				<div class="col-12 text-center mb-5">
-					<h2 class="display-5 fw-bold wow fadeInUp" data-wow-duration="0.5s">
-						Достопримечательности
-					</h2>
+					<div class="header-wrapper wow fadeInUp" data-wow-duration="0.5s">
+						<h2 class="display-5 fw-bold">
+							Достопримечательности
+						</h2>
 					<div
 						class="separator mx-auto wow fadeInUp" data-wow-delay="0.05s" data-wow-duration="0.5s"
 					></div>
@@ -208,7 +212,7 @@
 						class="col-md-6 col-lg-4 mb-4 wow fadeInUp"
 						data-wow-delay="0.1s"
 					>
-						<div class="attraction-card attractions-gallery-item">
+						<div class="attraction-card attractions-gallery-item card-3d">
 							<img
 								src="images/dostoprim-1.jpg"
 								class="card-img-top"
@@ -227,7 +231,7 @@
 						class="col-md-6 col-lg-4 mb-4 wow fadeInUp"
 						data-wow-delay="0.15s"
 					>
-						<div class="attraction-card attractions-gallery-item">
+						<div 						class="attraction-card attractions-gallery-item card-3d">
 							<img
 								src="images/dostoprim-2.jpg"
 								class="card-img-top"
@@ -246,7 +250,7 @@
 						class="col-md-6 col-lg-4 mb-4 wow fadeInUp"
 						data-wow-delay="0.2s"
 					>
-						<div class="attraction-card attractions-gallery-item">
+						<div 						class="attraction-card attractions-gallery-item card-3d">
 							<img src="images/dostoprim-3.jpg" class="card-img-top" alt="Максимка" />
 							<div class="card-body">
 								<h5 class="card-title">Максимка</h5>
@@ -261,7 +265,7 @@
 						class="col-md-6 col-lg-4 mb-4 wow fadeInUp"
 						data-wow-delay="0.25s"
 					>
-						<div class="attraction-card attractions-gallery-item">
+						<div 						class="attraction-card attractions-gallery-item card-3d">
 							<img src="images/dostoprim-4.jpg" class="card-img-top" alt="Летний сад" />
 							<div class="card-body">
 								<h5 class="card-title">Летний сад</h5>
@@ -276,7 +280,7 @@
 						class="col-md-6 col-lg-4 mb-4 wow fadeInUp"
 						data-wow-delay="0.3s"
 					>
-						<div class="attraction-card attractions-gallery-item">
+						<div 						class="attraction-card attractions-gallery-item card-3d">
 							<img
 								src="images/dostoprim-5.jpg"
 								class="card-img-top"
@@ -295,7 +299,7 @@
 						class="col-md-6 col-lg-4 mb-4 wow fadeInUp"
 						data-wow-delay="0.35s"
 					>
-						<div class="attraction-card attractions-gallery-item">
+						<div 						class="attraction-card attractions-gallery-item card-3d">
 							<img src="images/dostoprim-6.jpg" class="card-img-top" alt="Яхт-клуб" />
 							<div class="card-body">
 								<h5 class="card-title">Яхт-клуб</h5>
@@ -314,15 +318,17 @@
 			<div class="container">
 			<div class="row">
 				<div class="col-12 text-center mb-5">
-					<h2 class="display-5 fw-bold wow fadeInUp" data-wow-duration="0.5s">
-						Галерея
-					</h2>
-					<div
-						class="separator mx-auto wow fadeInUp" data-wow-delay="0.05s" data-wow-duration="0.5s"
-					></div>
-					<p class="mt-3 wow fadeInUp" data-wow-delay="0.05s" data-wow-duration="0.5s">
-						Нажмите на фотографию, чтобы открыть её в полноэкранном режиме
-					</p>
+					<div class="header-wrapper wow fadeInUp" data-wow-duration="0.5s">
+						<h2 class="display-5 fw-bold">
+							Галерея
+						</h2>
+						<div
+							class="separator mx-auto"
+						></div>
+						<p class="mt-3">
+							Нажмите на фотографию, чтобы открыть её в полноэкранном режиме
+						</p>
+					</div>
 				</div>
 			</div>
 				<div class="row g-3" id="gallery-grid">
@@ -1193,18 +1199,20 @@
 		<section id="modern" class="py-5 bg-light">
 			<div class="container">
 			<div class="row">
-				<div class="col-12 text-center mb-5">
-					<h2 class="display-5 fw-bold wow fadeInUp" data-wow-duration="0.5s">
-						Современный Кронштадт
-					</h2>
-					<div
-						class="separator mx-auto wow fadeInUp" data-wow-delay="0.05s" data-wow-duration="0.5s"
-					></div>
+					<div class="col-12 text-center mb-5">
+						<div class="header-wrapper wow fadeInUp" data-wow-duration="0.5s">
+							<h2 class="display-5 fw-bold">
+								История Кронштадта
+							</h2>
+							<div
+								class="separator mx-auto"
+							></div>
+						</div>
 				</div>
 			</div>
 				<div class="row">
 					<div class="col-lg-6 mb-4 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.1s">
-						<div class="history-card modern-gallery-item">
+						<div class="history-card modern-gallery-item card-3d">
 							<img
 								src="images/cultural-center.jpg"
 								alt="Современный Кронштадт"
@@ -1230,7 +1238,7 @@
 						</div>
 					</div>
 					<div class="col-lg-6 mb-4 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.2s">
-						<div class="history-card modern-gallery-item">
+						<div class="history-card modern-gallery-item card-3d">
 							<img
 								src="images/transport-accessibility.jpg"
 								alt="Современный Кронштадт"
@@ -1255,7 +1263,7 @@
 						</div>
 					</div>
 					<div class="col-lg-6 mb-4 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
-						<div class="history-card modern-gallery-item">
+						<div class="history-card modern-gallery-item card-3d">
 							<img
 								src="images/park-reconstruction.jpg"
 								alt="Реконструкция парков"
@@ -1280,7 +1288,7 @@
 						</div>
 					</div>
 					<div class="col-lg-6 mb-4 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.4s">
-						<div class="history-card modern-gallery-item">
+						<div class="history-card modern-gallery-item card-3d">
 							<img
 								src="images/building-renovation.jpg"
 								alt="Ремонт исторических зданий"
@@ -1308,35 +1316,37 @@
 				</div>
 				<div class="row mt-5">
 					<div class="col-md-4 text-center mb-4">
-						<div class="stat-card wow fadeInUp" data-wow-delay="0.1s">
+						<div class="stat-card wow fadeInUp card-3d" data-wow-delay="0.1s">
 							<div class="stat-number">43</div>
 							<div class="stat-label">км² площадь острова</div>
 						</div>
 					</div>
 					<div class="col-md-4 text-center mb-4">
-						<div class="stat-card wow fadeInUp" data-wow-delay="0.2s">
+						<div class="stat-card wow fadeInUp card-3d" data-wow-delay="0.2s">
 							<div class="stat-number">45</div>
 							<div class="stat-label">тысяч жителей</div>
 						</div>
 					</div>
 					<div class="col-md-4 text-center mb-4">
-						<div class="stat-card wow fadeInUp" data-wow-delay="0.3s">
+						<div class="stat-card wow fadeInUp card-3d" data-wow-delay="0.3s">
 							<div class="stat-number">300+</div>
 							<div class="stat-label">лет истории</div>
 						</div>
 					</div>
 				</div>
-				<div class="row mt-5">
-					<div class="col-12 text-center mb-4">
-						<h3 class="display-6 fw-bold wow fadeInUp" data-wow-duration="0.5s">
+			<div class="row mt-5">
+				<div class="col-12 text-center mb-4">
+					<div class="header-wrapper wow fadeInUp" data-wow-duration="0.5s">
+						<h3 class="display-6 fw-bold">
 							Виды современного города
 						</h3>
-						<p class="text-muted wow fadeInUp" data-wow-delay="0.05s" data-wow-duration="0.5s">
+						<p class="text-muted">
 							Кронштадт сегодня — сочетание исторического наследия и современной
 							жизни
 						</p>
 					</div>
 				</div>
+			</div>
 				<div class="row g-3" id="modern-gallery">
 					<div class="col-md-6 col-lg-4">
 						<div class="modern-gallery-item wow fadeInUp" data-wow-delay="0s">
@@ -1453,17 +1463,17 @@
 		<section id="contacts" class="py-5">
 			<div class="container">
 				<div class="row">
-					<div class="col-12 text-center mb-5">
-						<h2 class="display-5 fw-bold wow fadeInUp" data-wow-duration="0.5s">
+				<div class="col-12 text-center mb-5">
+					<div class="header-wrapper wow fadeInUp" data-wow-duration="0.5s">
+						<h2 class="display-5 fw-bold">
 							Контакты
 						</h2>
 						<div
-							class="separator mx-auto wow fadeInUp" data-wow-delay="0.05s" data-wow-duration="0.5s"
+							class="separator mx-auto"
 						></div>
-						<p class="mt-3 text-muted wow fadeInUp" data-wow-delay="0.05s" data-wow-duration="0.5s">
-							Кронштадт находится на острове Котлин в Финском заливе
-						</p>
 					</div>
+				</div>
+			</div>
 				</div>
 			</div>
 			<div class="map-wrapper">
@@ -1479,37 +1489,39 @@
 			<div class="container mt-4">
 				<div class="row">
 					<div class="col-lg-6 mb-4 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.1s">
-						<div class="contact-info">
+						<div class="contact-info card-3d">
 							<h3>Как добраться</h3>
 							<p>
-								<i class="fas fa-car me-2"></i>По дамбе Кронштадтского форта
+								<i class="fas fa-car me-2"></i><strong>На автомобиле:</strong> Через дамбу Кронштадтского форта. Свобода действий, не привязаны к расписанию.
 							</p>
 							<p>
-								<i class="fas fa-bus me-2"></i>Автобус №175 от метро "Чёрная
-								речка"
+								<i class="fas fa-bus me-2"></i><strong>Автобус №101:</strong> Остановка у ст. метро «Старая деревня», примерно 1 час пути.
 							</p>
 							<p>
-								<i class="fas fa-ship me-2"></i>Водный транспорт от
-								Санкт-Петербурга
+								<i class="fas fa-van-shuttle me-2"></i><strong>Маршрутка К405 и К407:</strong> Интервал 15–20 минут.
+							</p>
+							<p>
+								<i class="fas fa-ship me-2"></i><strong>«Метеор»:</strong> Скоростной теплоход, 30 минут пути. Сезонный (апрель-ноябрь). Отправление от: Арсенальная набережная, Тучков мост, Дворцовый мост.
 							</p>
 						</div>
 					</div>
 					<div class="col-lg-6 mb-4 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.2s">
-						<div class="contact-info">
+						<div class="contact-info card-3d">
 							<h3>Полезная информация</h3>
 							<p>
-								<i class="fas fa-clock me-2"></i>Лучшее время для посещения:
-								май-сентябрь
+								<i class="fas fa-clock me-2"></i><strong>Лучшее время для посещения:</strong> май-сентябрь, когда тепло и работает «Метеор».
 							</p>
 							<p>
-								<i class="fas fa-map-marker-alt me-2"></i>Координаты: 59.9924°N,
-								29.7703°E
+								<i class="fas fa-fort-awesome me-2"></i><strong>Основные форты:</strong> Форт Константин (ближайший, доступен), Форт Пётр I, Форт Александр I, Форт Риф, Форт Шанц. До фортов можно добраться на катере от Якорной площади.
 							</p>
 							<p>
-								<i class="fas fa-camera me-2"></i>Рекомендуем посетить Морской
-								собор и форты
+								<i class="fas fa-tree me-2"></i><strong>Парки:</strong> Летний сад, Петровский парк, а также новые благоустроенные зоны отдыха с зелёными аллеями и скверами по всему острову.
+							</p>
+							<p>
+								<i class="fas fa-camera me-2"></i><strong>Фотозоны:</strong> Якорная площадь, Петровский dock, Морской собор, набережные.
 							</p>
 						</div>
+					</div>
 					</div>
 				</div>
 			</div>

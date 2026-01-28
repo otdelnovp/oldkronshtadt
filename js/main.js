@@ -1,4 +1,145 @@
 $(document).ready(function() {
+    
+    // Scroll Progress Indicator
+    let ticking = false;
+    $(window).scroll(function() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                const scrollPos = $(window).scrollTop();
+                const docHeight = $(document).height() - $(window).height();
+                const scrollPercent = (scrollPos / docHeight) * 100;
+                $('.scroll-progress').css('width', scrollPercent + '%');
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+    
+    // Parallax Effect (optimized with requestAnimationFrame)
+    let parallaxTicking = false;
+    $(window).scroll(function() {
+        if (!parallaxTicking) {
+            window.requestAnimationFrame(function() {
+                const scrollPos = $(window).scrollTop();
+
+                // Enhanced parallax for hero background - more noticeable effect
+                $('.hero-bg-img').css('transform', 'translateY(' + (scrollPos * 0.7) + 'px)');
+
+                parallaxTicking = false;
+            });
+            parallaxTicking = true;
+        }
+    });
+    
+    // 3D Card Tilt Effect (optimized)
+    let tiltTicking = false;
+    $('.card-3d, .gallery-item, .modern-gallery-item').on('mousemove', function(e) {
+        if (!tiltTicking) {
+            window.requestAnimationFrame(function() {
+                const $card = $(this);
+                const rect = $card[0].getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = (y - centerY) / 12;
+                const rotateY = (centerX - x) / 12;
+
+                $card.css('transform', `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`);
+                tiltTicking = false;
+            }.bind(this));
+            tiltTicking = true;
+        }
+    });
+
+    $('.card-3d, .gallery-item, .modern-gallery-item').on('mouseleave', function() {
+        $(this).css('transform', 'perspective(1000px) rotateX(0) rotateY(0) scale(1)');
+    });
+    
+    // Particles Animation
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    
+    class Particle {
+        constructor() {
+            this.reset();
+        }
+        
+        reset() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 2 + 1;
+            this.speedX = Math.random() * 0.5 - 0.25;
+            this.speedY = Math.random() * 0.5 - 0.25;
+            this.opacity = Math.random() * 0.5 + 0.2;
+        }
+        
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            
+            if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+                this.reset();
+            }
+        }
+        
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+            ctx.fill();
+        }
+    }
+    
+    for (let i = 0; i < 80; i++) {
+        particles.push(new Particle());
+    }
+    
+    function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        particles.forEach(particle => {
+            particle.update();
+            particle.draw();
+        });
+        
+        requestAnimationFrame(animateParticles);
+    }
+    
+    animateParticles();
+    
+    // Scroll-triggered animations
+    const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const $element = $(entry.target);
+                $element.addClass('visible');
+                scrollObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    $('.history-card, .attraction-card, .stat-card, .gallery-item, .modern-gallery-item, .contact-info').each(function() {
+        $(this).addClass('scroll-up');
+        scrollObserver.observe(this);
+    });
+
+    $('.hero-content h1, .hero-content p, .hero-content a').each(function() {
+        $(this).addClass('fade-in');
+        scrollObserver.observe(this);
+    });
+    
     var wow = new WOW({
         offset: 50,
         mobile: true,
@@ -41,11 +182,12 @@ $(document).ready(function() {
             e.preventDefault();
             var hash = this.hash;
             var offset = 70;
-            
-            $('html, body').animate({
+
+            // Мгновенный скролл без задержки
+            $('html, body').stop().animate({
                 scrollTop: $(hash).offset().top - offset
-            }, 800);
-            
+            }, 600, 'swing');
+
             // Закрываем меню на мобильных устройствах
             $('.navbar-collapse').collapse('hide');
         }
